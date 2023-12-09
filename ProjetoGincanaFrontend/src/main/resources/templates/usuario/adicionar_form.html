@@ -1,0 +1,117 @@
+<div th:replace="comum/up"></div>
+
+<section>
+	<div class="mainwrapper">
+
+		<div th:replace="/comum/leftpanel"></div>
+
+		<div class="mainpanel">
+			<div class="pageheader">
+				<div class="media">
+					<div class="pageicon pull-left">
+						<i class="fa fa-pencil"></i>
+					</div>
+					<div class="media-body">
+						<ul class="breadcrumb">
+							<li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
+							<li><a href="/usuario/">Cadastros / Usuários</a></li>
+						</ul>
+						<h4>Novo Usuário</h4>
+					</div>
+				</div><!-- media -->
+			</div><!-- pageheader -->
+
+			<div class="contentpanel">
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">Novo Usuário</h4>
+							<p>Tela de criação de usuário</p>
+						</div><!-- panel-heading -->
+
+
+						<form method="POST" id="basicForm" th:action="@{/usuario/adicionar}">
+							<div class="panel-body">
+								<div class="row">
+									<div class="form-group">
+
+										<label class="col-sm-3 control-label">Nome<span
+												class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="text" id="nome_Usuario" name="nome_Usuario" class="form-control"
+												placeholder="nome do usuário" required />
+										</div>
+									</div><!-- form-group -->
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Email<span
+												class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="text" id="email_Usuario" name="email_Usuario"
+												class="form-control" placeholder="email do usuário" required />
+										</div>
+									</div><!-- form-group -->
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Senha<span
+												class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="text" id="senha_Usuario" name="senha_Usuario" class="form-control"
+												placeholder="senha do usuário" required />
+										</div>
+									</div><!-- form-group -->
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Sexo<span
+												class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="text" id="sexo_Usuario" name="sexo_Usuario" class="form-control"
+												placeholder="sexo do usuário" required />
+										</div>
+									</div><!-- form-group -->
+
+								
+									
+									<div class="form-group">
+							            
+							
+										<label class="col-sm-3 control-label">Gincana<span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<select class="form-control"  name="gincana">
+											    <option value="0">Gincana</option>
+											    <option th:each="gincana : ${gincanas}" th:value="${gincana.id_Gincana}" th:text="${gincana.nome_Gincana}"></option>
+											</select>
+											
+									</div><!-- form-group -->
+									
+										</div>
+										<label class="col-sm-3 control-label">Perfil do Usuário<span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<select class="form-control"  name="perfil">
+											    <option value="0">Selecione uma Opção</option>
+											    <option th:each="perfil : ${perfis}" th:value="${perfil.id_Perfil}" th:text="${perfil.cargo_Perfil}"></option>
+											</select>
+											
+									</div><!-- form-group -->
+
+								</div><!-- row -->
+							</div><!-- panel-body -->
+							<div class="panel-footer">
+								<div class="row">
+									<a href="/usuario/" class="btn btn-success">Voltar</a>
+									<button type="submit" class="btn btn-primary">Salvar</button>
+									<button type="reset" class="btn btn-dark">Limpar</button>
+								</div>
+
+							</div><!-- panel -->
+						</form>
+
+					</div><!-- panel -->
+
+				</div>
+
+			</div><!-- contentpanel -->
+
+</section>
+
+<div th:replace="comum/down"></div>

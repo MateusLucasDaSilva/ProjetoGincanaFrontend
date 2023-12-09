@@ -1,0 +1,93 @@
+<div th:replace="comum/up"></div>
+
+<section>
+	<div class="mainwrapper">
+
+		<div th:replace="/comum/leftpanel"></div>
+
+		<div class="mainpanel">
+			<div class="pageheader">
+				<div class="media">
+					<div class="pageicon pull-left">
+						<i class="fa fa-pencil"></i>
+					</div>
+					<div class="media-body">
+						<ul class="breadcrumb">
+							<li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
+							<li><a href="/galeria/">Cadastros / Imagem</a></li>
+						</ul>
+						<h4>Nova Imagem</h4>
+					</div>
+				</div>
+				<!-- media -->
+			</div>
+			<!-- pageheader -->
+
+
+
+			<div class="contentpanel">
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">Imagem</h4>
+							<p>Tela de upload de imagem</p>
+						</div>
+						<!-- panel-heading -->
+
+
+						<form method="POST" id="basicForm"
+							th:action="@{/imagem/adicionar}">
+							<div class="panel-body">
+								<div class="row">
+									<div class="form-group">
+										<label class="col-sm-3 control-label">URL da Imagem<span
+											class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="text" id="URL_Imagem" name="URL_Imagem"
+												class="form-control" placeholder="URL da Imagem" required />
+										</div>
+									</div>
+									<!-- form-group -->
+
+									<div class="form-group">
+
+
+										<label class="col-sm-3 control-label">Galeria<span
+											class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<select class="form-control" name="galeria">
+												<option value="0">Galeria</option>
+												<option th:each="galeria : ${galerias}"
+													th:value="${galeria.id_Galeria}"
+													th:text="${galeria.nome_Galeria}"></option>
+											</select>
+
+										</div>
+										<!-- form-group -->
+
+
+									</div>
+									<!-- row -->
+								</div>
+								<!-- panel-body -->
+								<div class="panel-footer">
+									<div class="row">
+										<a href="/imagem/" class="btn btn-success">Voltar</a>
+										<button type="submit" class="btn btn-primary">Salvar</button>
+										<button type="reset" class="btn btn-dark">Limpar</button>
+									</div>
+
+								</div>
+								<!-- panel -->
+						</form>
+
+					</div>
+					<!-- panel -->
+
+				</div>
+
+			</div>
+			<!-- contentpanel -->
+</section>
+
+<div th:replace="comum/down"></div>

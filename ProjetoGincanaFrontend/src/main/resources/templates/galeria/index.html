@@ -1,0 +1,77 @@
+<div th:replace="comum/up"></div>
+	
+	<section>
+		<div class="mainwrapper">
+
+			<div th:replace="comum/leftpanel"></div>
+
+			<div class="mainpanel">
+				<div class="pageheader">
+					<div class="media">
+						<div class="pageicon pull-left">
+							<i class="fa fa-pencil"></i>
+						</div>
+						<div class="media-body">
+							<ul class="breadcrumb">
+								<li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
+								<li><a href="/galeria/">Cadastros / Galerias</a></li>
+							</ul>
+							<h4>Lista de Galerias</h4>
+						</div>
+					</div><!-- media -->
+				</div><!-- pageheader -->
+
+		<div class="contentpanel">
+			<div class="contentpanel">
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">Galerias</h4>
+							<p>Tela para listagem das galerias</p>
+						</div><!-- panel-heading -->
+
+						<div  class="panel-body nopadding">
+							<a href="/galeria/adicionar_form" class="btn btn-primary" style="margin: 10px;">Novo</a>
+							<div class="table-responsive">
+								<table class="table table-hidaction table-hover mb30">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Nome</th>
+											<th>Descricao</th>
+										    <th>Gincana</th>
+										    <th></th>
+										     
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="glr : ${galeria}">
+										<td th:text="${glr.id_Galeria}"></td>
+									    <td th:text="${glr.nome_Galeria}"></td>
+										<td th:text="${glr.descricao_Galeria}"></td>
+										<td th:text="${glr.gincana.nome_Gincana}"></td> 
+										<td>
+											
+											<a th:href="@{/galeria/editar_form/{id}(id=${glr.id_Galeria})}"  class="btn btn-success"><i class="fa fa-pencil white"></i></a>
+											<a th:href="@{/galeria/deletar/{id}(id=${glr.id_Galeria})}" class="btn btn-danger"><i class="fa fa-trash-o white"></i></a>
+											<a th:href="@{/galeria/indexdashboard}"  class="btn btn-warning"><i class="fa fa-file-photo-o white"></i></a>
+										</td>
+										</tr>
+									</tbody>
+								</table>
+							</div><!-- table-responsive -->
+
+						</div><!-- panel-body -->
+
+						<div class="panel-footer">
+							<a href="/dashboard" class="btn btn-success" >Voltar</a>
+						</div><!-- panel-footer -->
+					</div><!-- panel -->
+
+				</div>
+
+			</div><!-- contentpanel -->
+</div>
+	</section>
+
+<div th:replace="comum/down"></div>

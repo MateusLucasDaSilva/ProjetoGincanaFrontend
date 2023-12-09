@@ -1,0 +1,101 @@
+<div th:replace="comum/up"></div>
+
+<section>
+	<div class="mainwrapper">
+
+		<div th:replace="comum/leftpanel"></div>
+
+		<div class="mainpanel">
+			<div class="pageheader">
+				<div class="media">
+					<div class="pageicon pull-left">
+						<i class="fa fa-pencil"></i>
+					</div>
+					<div class="media-body">
+						<ul class="breadcrumb">
+							<li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
+							<li><a href="/curso">Cursos</a></li>
+						</ul>
+						<h4>Novo Curso</h4>
+
+					</div>
+				</div>
+				<!-- media -->
+			</div>
+			<!-- pageheader -->
+
+
+			<div class="contentpanel">
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">Novo Curso</h4>
+							<p>Tela criação de um novo curso</p>
+						</div>
+						<!-- panel-heading -->
+
+
+						<form method="POST" id="basicForm" th:action="@{/curso/editar}">
+							<div class="panel-body">
+								<div class="row">
+
+
+									<div class="form-group">
+
+										<label class="col-sm-3 control-label">Nome do Curso<span
+											class="asterisk">*</span>
+										</label>
+										<div class="col-sm-9">
+											<input hidden type="textarea" id="id_Curso" name="id_Curso"
+												th:value="${id_Curso}" /> <input type="textarea"
+												id="nome_Curso" name="nome_Curso" class="form-control"
+												th:value="${nome_Curso}" required />
+										</div>
+									</div>
+									<!-- form-group -->
+									
+									<div class="form-group">
+
+										<label class="col-sm-3 control-label">Modalidade do Curso<span
+											class="asterisk">*</span>
+										</label>
+										<div class="col-sm-9">
+											<input hidden type="textarea" id="id_Curso" name="id_Curso"
+												th:value="${id_Curso}" /> <input type="textarea"
+												id="modalidade_Curso" name="modalidade_Curso" class="form-control"
+												th:value="${modalidade_Curso}" required />
+										</div>
+									</div>
+									<!-- form-group -->
+
+									
+
+
+
+
+
+								</div>
+								<!-- row -->
+							</div>
+							<!-- panel-body -->
+							<div class="panel-footer">
+								<div class="row">
+									<a href="/curso/" class="btn btn-success">Voltar</a>
+									<button type="submit" class="btn btn-primary">Salvar</button>
+									<button type="reset" class="btn btn-dark">Limpar</button>
+								</div>
+
+							</div>
+							<!-- panel -->
+						</form>
+
+					</div>
+					<!-- panel -->
+
+				</div>
+
+			</div>
+			<!-- contentpanel -->
+</section>
+
+<div th:replace="comum/down"></div>

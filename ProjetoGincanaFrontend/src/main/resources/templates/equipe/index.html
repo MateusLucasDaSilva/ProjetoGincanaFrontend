@@ -1,0 +1,83 @@
+<div th:replace="comum/up"></div>
+	
+	<section>
+		<div class="mainwrapper">
+
+			<div th:replace="comum/leftpanel"></div>
+
+			<div class="mainpanel">
+				<div class="pageheader">
+					<div class="media">
+						<div class="pageicon pull-left">
+							<i class="fa fa-pencil"></i>
+						</div>
+						<div class="media-body">
+							<ul class="breadcrumb">
+								<li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
+
+								<li><a href="/equipe/">Cadastros / Equipes</a></li>
+
+							</ul>
+							<h4>Lista de Equipes</h4>
+						</div>
+					</div><!-- media -->
+				</div><!-- pageheader -->
+
+
+			<div class="contentpanel">
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">Equipes</h4>
+							<p>Tela para listagem das equipes</p>
+						</div><!-- panel-heading -->
+
+						<div class="panel-body nopadding">
+							<a href="/equipe/adicionar_form" class="btn btn-primary" style="margin: 10px;">Novo</a>
+							<div class="table-responsive">
+								<table class="table table-hidaction table-hover mb30">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Nome</th>
+											<th>Descrição</th>
+											<th>Curso</th>
+											<th>Gincana</th>
+											<th>Representante</th>
+											<th></th>
+											
+										</tr>
+									</thead>
+									<tbody>
+									 <tr th:each="equipe : ${equipes}">
+										<td th:text="${equipe.id_Equipe}"></td>
+											<td th:text="${equipe.nome_Equipe}"></td>
+											<td th:text="${equipe.descricao_Equipe}"></td>
+											<td th:text="${equipe.curso.nome_Curso}"></td>
+											<td th:text="${equipe.gincana.nome_Gincana}"></td>
+											<td th:text="${equipe.usuario.nome_Usuario}"></td>
+											
+											
+											<td>
+												<a th:href="@{/equipe/editar_form/{id}(id=${equipe.id_Equipe})}"  class="btn btn-success"><i class="fa fa-pencil white"></i></a>
+												<a th:href="@{/equipe/deletar/{id}(id=${equipe.id_Equipe})}" class="btn btn-danger"><i class="fa fa-trash-o white"></i></a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div><!-- table-responsive -->
+
+						</div><!-- panel-body -->
+
+						<div class="panel-footer">
+							<a href="/dashboard" class="btn btn-success" >Voltar</a>
+						</div><!-- panel-footer -->
+					</div><!-- panel -->
+
+				</div>
+
+			</div><!-- contentpanel -->
+
+	</section>
+
+<div th:replace="comum/down"></div>

@@ -1,0 +1,197 @@
+<div th:replace="comum/up"></div>
+
+        
+        <section>
+            <div class="mainwrapper">
+               <div th:replace="comum/leftpanel"></div>
+                
+                <div class="mainpanel">
+                    <div class="pageheader">
+                        <div class="media">
+                            <div class="pageicon pull-left">
+                                <i class="fa fa-folder"></i>
+                            </div>
+                            <div class="media-body">
+                                <ul class="breadcrumb">
+                                    <li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
+                                    <li><a href="#">Pages</a></li>
+                                    <li>Media Manager</li>
+                                </ul>
+                                <h4>Media Manager</h4>
+                            </div>
+                        </div><!-- media -->
+                    </div><!-- pageheader -->
+                    
+                    <div class="contentpanel contentpanel-mediamanager">
+                        
+                   
+                        
+                        <hr>
+                        
+                        <ol th:each="imagem : ${imagens}">
+      
+                        <div class="row">
+                          <div class="col-sm-9">
+                            <div class="row media-manager">
+                              
+                            
+                              
+                              <div class="col-xs-6 col-sm-4 col-md-3 image">
+                                <div class="thmb">
+                                  <div class="ckbox ckbox-default">
+                                    <input type="checkbox" id="check2" value="1" />
+                                    <label for="check2"></label>
+                                  </div>
+                                  <div class="btn-group fm-group">
+                                      <button type="button" class="btn btn-default dropdown-toggle fm-toggle" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                      </button>
+                                      <ul class="dropdown-menu fm-menu pull-right" role="menu">
+                                        <li><a href="#"><i class="fa fa-share"></i> Share</a></li>
+                                        <li><a href="#"><i class="fa fa-envelope-o"></i> Email</a></li>
+                                        <li><a href="#"><i class="fa fa-pencil"></i> Edit</a></li>
+                                        <li><a href="#"><i class="fa fa-download"></i> Download</a></li>
+                                        <li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
+                                      </ul>
+                                  </div><!-- btn-group -->
+                                  <div class="thmb-prev">
+                                    <a href="https://img.freepik.com/fotos-gratis/amor-romance-perfurado-coracao-de-papel_53876-87.jpg?w=2000" data-rel="prettyPhoto">
+                                      <img th:src=${imagem.URL_Imagem} style="width:270px;height:180px;"  />
+                                    </a>
+                                  </div>
+                                  <h5 class="fm-title"><td th:text="${imagem.galeria.nome_Galeria}"></td></h5>
+                                  <small class="text-muted"><td
+											th:text="${imagem.galeria.gincana.nome_Gincana}"></td></small>
+                                </div><!-- thmb -->
+                              </div><!-- col-xs-6 -->
+                              
+                          
+                              
+                              
+                          
+                              
+                              
+                               </ol>  
+                              
+                       
+                              
+                              
+                              
+                              
+                            </div><!-- row -->
+                            
+                            <br />
+                         
+                            
+                            
+                          </div><!-- col-sm-9 -->
+                      
+                        </div>
+                      </div>
+                    
+                    </div><!-- contentpanel -->
+                    
+                
+            </div><!-- mainwrapper -->
+        </section>
+        
+<div th:replace="comum/down"></div>
+
+
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/jquery-migrate-1.2.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/modernizr.min.js"></script>
+        <script src="js/pace.min.js"></script>
+        <script src="js/retina.min.js"></script>
+        <script src="js/jquery.cookies.js"></script>
+        
+        <script src="js/jquery.prettyPhoto.js"></script>
+
+        <script src="js/custom.js"></script>
+        <script>
+            jQuery(document).ready(function(){
+    
+                jQuery('.thmb').hover(function() {
+                    var t = jQuery(this);
+                    t.find('.ckbox').show();
+                    t.find('.fm-group').show();
+                }, function() {
+      
+                    var t = jQuery(this);
+                    if(!t.closest('.thmb').hasClass('checked')) {
+                        t.find('.ckbox').hide();
+                        t.find('.fm-group').hide();
+                    }
+                });
+    
+                jQuery('.ckbox').each(function(){
+                    var t = jQuery(this);
+                    var parent = t.parent();
+                    if(t.find('input').is(':checked')) {
+                        t.show();
+                        parent.find('.fm-group').show();
+                        parent.addClass('checked');
+                    }
+                });
+    
+    
+                jQuery('.ckbox').click(function(){
+                    var t = jQuery(this);
+                    if(!t.find('input').is(':checked')) {
+                        t.closest('.thmb').removeClass('checked');
+                        enable_itemopt(false);
+                    } else {
+                        t.closest('.thmb').addClass('checked');
+                        enable_itemopt(true);
+                    }
+                });
+    
+                jQuery('#selectAll').click(function() {
+                    if(jQuery(this).hasClass('btn-default')) {
+                        jQuery('.thmb').each(function() {
+                            jQuery(this).find('input').attr('checked',true);
+                            jQuery(this).addClass('checked');
+                            jQuery(this).find('.ckbox, .fm-group').show();
+                        });
+                        enable_itemopt(true);
+                        jQuery(this).removeClass('btn-default').addClass('btn-primary');
+                        jQuery(this).text('Select None');
+                    } else {
+                        jQuery('.thmb').each(function(){
+                            jQuery(this).find('input').attr('checked',false);
+                            jQuery(this).removeClass('checked');
+                            jQuery(this).find('.ckbox, .fm-group').hide();
+                        });
+                        enable_itemopt(false);
+                        jQuery(this).removeClass('btn-primary').addClass('btn-default');
+                        jQuery(this).text('Select All');
+                    }
+                });
+    
+                function enable_itemopt(enable) {
+                    if(enable) {
+                        jQuery('.media-options .btn.disabled').removeClass('disabled').addClass('enabled');
+                    } else {
+        
+                        // check all thumbs if no remaining checks
+                        // before we can disabled the options
+                        var ch = false;
+                        jQuery('.thmb').each(function(){
+                            if(jQuery(this).hasClass('checked'))
+                                ch = true;
+                        });
+        
+                        if(!ch)
+                            jQuery('.media-options .btn.enabled').removeClass('enabled').addClass('disabled');
+                    }
+                }
+    
+                jQuery("a[data-rel^='prettyPhoto']").prettyPhoto();
+    
+            });
+        </script>
+    </body>
+
+<!-- Mirrored from themepixels.com/demo/webpage/chain/media-manager.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Aug 2014 12:22:35 GMT -->
+</html>

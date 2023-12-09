@@ -1,0 +1,77 @@
+	<div th:replace="comum/up"></div>
+	
+	<section>
+		<div class="mainwrapper">
+
+			<div th:replace="comum/leftpanel"></div>
+
+			<div class="mainpanel">
+				<div class="pageheader">
+					<div class="media">
+						<div class="pageicon pull-left">
+							<i class="fa fa-pencil"></i>
+						</div>
+						<div class="media-body">
+							<ul class="breadcrumb">
+								<li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
+
+
+								<li><a href="/status/">Cadastros / Status</a></li>
+
+							</ul>
+							<h4>Lista de Status</h4>
+						</div>
+					</div><!-- media -->
+				</div><!-- pageheader -->
+
+
+			<div class="contentpanel">
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+
+
+							<h4 class="panel-title">Status</h4>
+							<p>Tela para listagem dos status</p>
+
+						</div><!-- panel-heading -->
+
+						<div class="panel-body nopadding">
+							<a href="/status/adicionar_form" class="btn btn-primary" style="margin: 10px;">Novo</a>
+							<div class="table-responsive">
+								<table class="table table-hidaction table-hover mb30">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Descrição</th>
+											<th></th>
+										</tr>
+									</thead>
+	
+									<tbody>
+										<tr th:each="listStatus : ${status}">
+										<td th:text="${listStatus.id_Status}"></td>
+											<td th:text="${listStatus.situacao_Status}"></td>
+											<td>
+												<a th:href="@{/status/editar_form/{id}(id=${listStatus.id_Status})}"  class="btn btn-success"><i class="fa fa-pencil white"></i></a>
+												<a th:href="@{/status/deletar/{id}(id=${listStatus.id_Status})}" class="btn btn-danger"><i class="fa fa-trash-o white"></i></a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div><!-- table-responsive -->
+
+						</div><!-- panel-body -->
+
+						<div class="panel-footer">
+							<a href="/dashboard" class="btn btn-success" >Voltar</a>
+						</div><!-- panel-footer -->
+					</div><!-- panel -->
+
+				</div>
+
+			</div><!-- contentpanel -->
+
+	</section>
+
+<div th:replace="comum/down"></div>

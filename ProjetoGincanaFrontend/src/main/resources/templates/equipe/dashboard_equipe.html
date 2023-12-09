@@ -1,0 +1,100 @@
+<div th:replace="comum/up"></div>
+
+<section>
+	<div class="mainwrapper">
+
+		<div th:replace="/comum/leftpanel"></div>
+
+		<div class="mainpanel">
+
+			<div class="pageheader">
+				<div class="media">
+					<div class="pageicon pull-left">
+						<i class="fa fa-home"></i>
+					</div>
+					<div class="media-body">
+						<ul class="breadcrumb">
+							<li><a href="/dashboard"><i class="glyphicon glyphicon-home"></i></a></li>
+							<li>Equipes</li>
+						</ul>
+						<h4>Equipes</a></h4>
+					</div>
+				</div><!-- media -->
+			</div><!-- pageheader -->
+			<div class="contentpanel">
+
+				<div class="row row-stat"> </div>
+
+
+				<ol th:each="equipe : ${equipes}">
+
+
+					<a href="/equipe/indexdashboard_equipe">
+						<div class="col-md-4">
+
+							<div class="panel panel-danger-alt noborder">
+
+								<div class="panel-heading noborder">
+									<div class="panel-btns">
+
+									</div><!-- panel-btns -->
+									<div class="media-body">
+
+										<h1><td th:text="${equipe.nome_Equipe}"></td></h1>
+
+									
+										<table>
+
+								<hr>
+											<tbody>
+
+
+												<tr>
+
+
+													<td></td>
+												<h2>
+												<td th:text="${equipe.descricao_Equipe}"></td>
+												</h2>
+													<td></td>
+												
+
+												</tr>
+
+
+											</tbody>
+
+
+
+
+
+										</table>
+
+
+
+
+									</div><!-- media-body -->
+
+
+
+
+
+
+								</div><!-- panel-heading noborder -->
+							</div><!-- panel panel-warning-alt noborder -->
+
+						</div><!-- col-md-4 -->
+					</a>
+
+
+
+				</ol>
+
+
+			</div><!-- contentpanel -->
+		</div><!-- mainpanel -->
+	</div><!-- row -->
+
+</section>
+
+<div th:replace="comum/down"></div>

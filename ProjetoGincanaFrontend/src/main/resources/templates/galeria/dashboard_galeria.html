@@ -1,0 +1,103 @@
+<div th:replace="comum/up"></div>
+
+<section>
+	<div class="mainwrapper">
+
+		<div th:replace="/comum/leftpanel"></div>
+
+		<div class="mainpanel">
+
+			<div class="pageheader">
+				<div class="media">
+					<div class="pageicon pull-left">
+						<i class="fa fa-home"></i>
+					</div>
+					<div class="media-body">
+						<ul class="breadcrumb">
+							<li><a href="/dashboard"><i
+									class="glyphicon glyphicon-home"></i></a></li>
+							<li>Galerias</li>
+						</ul>
+						<h4>
+							Galerias</a>
+						</h4>
+					</div>
+				</div>
+				<!-- media -->
+			</div>
+			<!-- pageheader -->
+			<div class="contentpanel">
+
+				<div class="row row-stat"></div>
+				<!-- row row-stat -->
+
+
+
+
+
+
+				<ol th:each="galeria : ${galerias}">
+		
+				
+			
+			
+
+						<a href="/imagem/indexdashboard">
+							<div class="col-md-4">
+							
+							   <div class="panel panel-warning-alt noborder">
+							        
+									
+							      <div class="panel-heading noborder">
+							      <div class="panel-btns">
+
+									</div><!-- panel-btns -->
+							      <div class="media-body">
+							      
+							      <h1><td th:text="${galeria.nome_Galeria}"></td></h1>
+
+	<br>
+									
+										
+										
+										                 <td th:text="${galeria.descricao_Galeria}"></td>
+										                 <td></td>
+										                 <td></td>
+										             
+										       
+										<br>
+							
+
+
+									 </div><!-- media-body -->
+							
+							
+							
+							
+							
+							
+							        </div><!-- panel-heading noborder -->
+							   </div><!-- panel panel-warning-alt noborder -->
+							
+							</div><!-- col-md-4 -->
+						</a>
+
+			
+              
+				</ol>
+
+
+
+
+
+
+			</div>
+			<!-- contentpanel -->
+		</div>
+		<!-- mainpanel -->
+	</div>
+	<!-- row -->
+
+</section>
+
+<div th:replace="comum/down"></div>

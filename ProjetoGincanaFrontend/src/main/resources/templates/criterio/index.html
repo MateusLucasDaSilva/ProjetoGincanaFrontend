@@ -1,0 +1,79 @@
+<div th:replace="comum/up"></div>
+	
+	<section>
+		<div class="mainwrapper">
+
+			<div th:replace="comum/leftpanel"></div>
+
+			<div class="mainpanel">
+				<div class="pageheader">
+					<div class="media">
+						<div class="pageicon pull-left">
+							<i class="fa fa-pencil"></i>
+						</div>
+						<div class="media-body">
+							<ul class="breadcrumb">
+								<li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
+								<li><a href="/criterio/">Cadastros / Critérios</a></li>
+							</ul>
+							<h4>Lista de Criterios de Provas</h4>
+						</div>
+					</div><!-- media -->
+				</div><!-- pageheader -->
+
+		<div class="contentpanel">
+			<div class="contentpanel">
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">Critérios</h4>
+							<p>Tela para listagem das critérios</p>
+						</div><!-- panel-heading -->
+
+						<div  class="panel-body nopadding">
+							<a href="/criterio/adicionar_form" class="btn btn-primary" style="margin: 10px;">Novo</a>
+							<div class="table-responsive">
+								<table class="table table-hidaction table-hover mb30">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Nome</th>
+											<th>Pontuação Mínima</th>
+											<th>Pontuação Máxima</th>
+											<th>Prova</th>
+										    <th></th> 
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="criterio : ${criterios}">
+										<td th:text="${criterio.id_Criterio}"></td>
+											<td th:text="${criterio.nome_Criterio}"></td>
+											<td th:text="${criterio.pontuacao_min_Criterio}"></td>
+											<td th:text="${criterio.pontuacao_max_Criterio}"></td>
+											<td th:text="${criterio.evento.nome_Evento}"></td>
+											
+											
+											<td>
+											
+												<a th:href="@{/criterio/editar_form/{id}(id=${criterio.id_Criterio})}"  class="btn btn-success"><i class="fa fa-pencil white"></i></a>
+												<a th:href="@{/criterio/deletar/{id}(id=${criterio.id_Criterio})}" class="btn btn-danger"><i class="fa fa-trash-o white"></i></a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div><!-- table-responsive -->
+
+						</div><!-- panel-body -->
+
+						<div class="panel-footer">
+							<a href="/dashboard" class="btn btn-success" >Voltar</a>
+						</div><!-- panel-footer -->
+					</div><!-- panel -->
+
+				</div>
+
+			</div><!-- contentpanel -->
+</div>
+	</section>
+
+<div th:replace="comum/down"></div>

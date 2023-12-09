@@ -1,0 +1,78 @@
+<div th:replace="comum/up"></div>
+
+<section>
+	<div class="mainwrapper">
+
+		<div th:replace="comum/leftpanel"></div>
+
+		<div class="mainpanel">
+			<div class="pageheader">
+				<div class="media">
+					<div class="pageicon pull-left">
+						<i class="fa fa-pencil"></i>
+					</div>
+					<div class="media-body">
+						<ul class="breadcrumb">
+							<li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
+							<li><a href="/status/">Cadastros / Status</a></li>
+						</ul>
+						<h4>Editar Status</h4>
+					</div>
+				</div>
+				<!-- media -->
+			</div>
+			<!-- pageheader -->
+
+
+			<div class="contentpanel">
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">Status</h4>
+							<p>Tela de edição de status</p>
+						</div>
+						<!-- panel-heading -->
+
+
+						<form method="POST" id="basicForm" th:action="@{/status/editar}">
+							<div class="panel-body">
+								<div class="row">
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Situação do
+											Status<span class="asterisk">*</span>
+										</label>
+										<div class="col-sm-9">
+											<input hidden type="textarea" id="id_Status" name="id_Status"
+												th:value="${id_Status}" /> <input type="textarea"
+												id="situacao_Status" name="situacao_Status"
+												class="form-control" th:value="${situacao}"
+												placeholder="nome do status" required />
+										</div>
+									</div>
+									<!-- form-group -->
+
+								</div>
+								<!-- row -->
+							</div>
+							<!-- panel-body -->
+							<div class="panel-footer">
+								<div class="row">
+									<a href="/gincana/" class="btn btn-success">Voltar</a>
+									<button type="submit" class="btn btn-primary">Salvar</button>
+									<button type="reset" class="btn btn-dark">Limpar</button>
+								</div>
+
+							</div>
+							<!-- panel -->
+						</form>
+
+					</div>
+					<!-- panel -->
+
+				</div>
+
+			</div>
+			<!-- contentpanel -->
+</section>
+
+<div th:replace="comum/down"></div>

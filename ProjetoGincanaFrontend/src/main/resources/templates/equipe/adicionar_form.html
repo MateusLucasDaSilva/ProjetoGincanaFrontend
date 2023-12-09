@@ -1,0 +1,117 @@
+<div th:replace="comum/up"></div>
+	
+	<section>
+		<div class="mainwrapper">
+
+			<div th:replace="/comum/leftpanel"></div>
+
+			<div class="mainpanel">
+				<div class="pageheader">
+					<div class="media">
+						<div class="pageicon pull-left">
+							<i class="fa fa-pencil"></i>
+						</div>
+						<div class="media-body">
+							<ul class="breadcrumb">
+								<li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
+								<li><a href="/equipe/">Cadastros / Equipes</a></li>
+							</ul>
+							<h4>Nova Equipe</h4>
+						</div>
+					</div><!-- media -->
+				</div><!-- pageheader -->
+
+
+			<div class="contentpanel">
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">Equipe</h4>
+							<p>Tela de criação de equipe</p>
+						</div><!-- panel-heading -->  
+						
+						
+						<form method="POST" id="basicForm" th:action="@{/equipe/adicionar}">
+							<div class="panel-body">
+								<div class="row">
+								<div class="form-group">
+										<label class="col-sm-3 control-label">Nome<span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="text" id="nome_Equipe" name="nome_Equipe" class="form-control"
+												placeholder="nome da equipe" required />
+										</div>
+									</div><!-- form-group -->
+									
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Descrição<span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="text" id="descricao_Equipe" name="descricao_Equipe" class="form-control"
+												placeholder="descrição da equipe" required />
+										</div>
+									</div><!-- form-group -->
+									
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Gincana<span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<select class="form-control"  name="gincana">
+											    <option value="0">Gincana</option>
+											    <option th:each="gincana : ${gincanas}" th:value="${gincana.id_Gincana}" th:text="${gincana.nome_Gincana}"></option>
+											</select>
+											</div>
+									</div><!-- form-group -->
+									
+									
+									<div class="form-group">
+							            
+							
+										<label class="col-sm-3 control-label">Curso<span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<select class="form-control"  name="curso">
+											    <option value="0">Gincana</option>
+											    <option th:each="curso : ${cursos}" th:value="${curso.id_Curso}" th:text="${curso.nome_Curso}"></option>
+											</select>
+											</div>
+									</div><!-- form-group -->
+									
+									<div class="form-group">
+							            
+							
+										<label class="col-sm-3 control-label">Representante<span class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<select class="form-control"  name="usuario">
+											    <option value="0">Representante</option>
+											    <option th:each="usuario : ${usuarios}" th:value="${usuario.id_Usuario}" th:text="${usuario.nome_Usuario}"></option>
+											</select>
+											</div>
+									</div><!-- form-group -->
+									
+									
+									
+
+									</div><!-- row -->
+							</div><!-- panel-body -->
+							
+							
+							
+							<div class="panel-footer">
+								<div class="row">
+									<a href="/equipe/" class="btn btn-success">Voltar</a>
+									<button type="submit" class="btn btn-primary">Salvar</button>
+									<button type="reset" class="btn btn-dark">Limpar</button>
+								
+								</div>
+								
+							</div><!-- panel -->
+						</form>
+						
+					</div><!-- panel -->
+
+				</div>
+
+			</div><!-- contentpanel -->
+
+	</section>
+
+<div th:replace="comum/down"></div>

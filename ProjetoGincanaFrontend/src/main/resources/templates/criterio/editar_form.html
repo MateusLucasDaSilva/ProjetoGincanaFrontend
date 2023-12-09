@@ -1,0 +1,120 @@
+<div th:replace="comum/up"></div>
+
+<section>
+	<div class="mainwrapper">
+
+		<div th:replace="comum/leftpanel"></div>
+
+		<div class="mainpanel">
+			<div class="pageheader">
+				<div class="media">
+					<div class="pageicon pull-left">
+						<i class="fa fa-pencil"></i>
+					</div>
+					<div class="media-body">
+						<ul class="breadcrumb">
+							<li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
+							<li><a href="/criterio/">Cadastros / Crit�rio</a></li>
+						</ul>
+						<h4>Editar Critério</h4>
+					</div>
+				</div>
+				<!-- media -->
+			</div>
+			<!-- pageheader -->
+
+
+			<div class="contentpanel">
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">Critério</h4>
+							<p>Tela de edição de critério</p>
+						</div>
+						<!-- panel-heading -->
+
+
+						<form method="POST" id="basicForm" th:action="@{/criterio/editar}">
+							<div class="panel-body">
+								<div class="row">
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Nome<span
+											class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input hidden type="textarea" id="id_Criterio"
+												name="id_Criterio" th:value="${id_Criterio}" /> <input
+												type="textarea" id="nome_Criterio" name="nome_Criterio"
+												class="form-control" th:value="${nome_Criterio}"
+												 required />
+										</div>
+									</div>
+									<!-- form-group -->
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Pontuação Mínima<span
+											class="asterisk">*</span></label>
+										<div class="col-sm-9">
+
+											<input type="number" id="pontuacao_min_Criterio"
+												name="pontuacao_min_Criterio" class="form-control"
+												th:value="${pontuacao_min_Criterio}"
+												required />
+										</div>
+									</div>
+									<!-- form-group -->
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Pontuaçãoo Máxima<span
+											class="asterisk">*</span></label>
+										<div class="col-sm-9">
+
+											<input type="number" id="pontuacao_max_Criterio"
+												name="pontuacao_max_Criterio" class="form-control"
+												th:value="${pontuacao_max_Criterio}"
+												required />
+										</div>
+									</div>
+									<!-- form-group -->
+
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Prova<span
+											class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<select class="form-control" name="evento">
+												<option value="0"></option>
+												<option th:each="evento : ${eventos}"
+													th:value="${evento.id_Evento}"
+													th:text="${evento.nome_Evento}"
+													th:selected="(${evento.id_Evento} == *{id_Evento})">
+												</option>
+											</select>
+										</div>
+									</div>
+									<!-- form-group -->
+
+								</div>
+								<!-- row -->
+							</div>
+							<!-- panel-body -->
+							<div class="panel-footer">
+								<div class="row">
+									<a href="/criterio/" class="btn btn-success">Voltar</a>
+									<button type="submit" class="btn btn-primary">Salvar</button>
+									<button type="reset" class="btn btn-dark">Limpar</button>
+								</div>
+
+							</div>
+							<!-- panel -->
+						</form>
+
+					</div>
+					<!-- panel -->
+
+				</div>
+
+			</div>
+			<!-- contentpanel -->
+</section>
+
+<div th:replace="comum/down"></div>

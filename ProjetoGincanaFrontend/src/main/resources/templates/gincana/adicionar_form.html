@@ -1,0 +1,132 @@
+<div th:replace="comum/up"></div>
+
+<section>
+	<div class="mainwrapper">
+
+		<div th:replace="/comum/leftpanel"></div>
+
+		<div class="mainpanel">
+			<div class="pageheader">
+				<div class="media">
+					<div class="pageicon pull-left">
+						<i class="fa fa-pencil"></i>
+					</div>
+					<div class="media-body">
+						<ul class="breadcrumb">
+							<li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
+							<li><a href="/gincana/">Cadastros / Gincanas</a></li>
+						</ul>
+						<h4>Nova Gincana</h4>
+					</div>
+				</div>
+				<!-- media -->
+			</div>
+			<!-- pageheader -->
+
+
+			<div class="contentpanel">
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">Gincana</h4>
+							<p>Tela criação de gincana</p>
+						</div>
+						<!-- panel-heading -->
+
+
+						<form method="POST" id="basicForm"
+							th:action="@{/gincana/adicionar}">
+							<div class="panel-body">
+								<div class="row">
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Nome<span
+											class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="text" id="nome_Gincana" name="nome_Gincana"
+												class="form-control" placeholder="nome da gincana" required />
+										</div>
+									</div>
+									<!-- form-group -->
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Descrição<span
+											class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="text" id="descricao_Gincana"
+												name="descricao_Gincana" class="form-control"
+												placeholder="descrição da gincana" required />
+										</div>
+									</div>
+									<!-- form-group -->
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Data de Inicio<span
+											class="asterisk">*</span></label>
+										<div class="col-sm-9">
+											<input type="Date" id="data_inicio_Gincana"
+												name="data_inicio_Gincana" class="form-control"
+												placeholder="data de inicio da gincana" required />
+										</div>
+									</div>
+									<!-- form-group -->
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Data de
+											Conclusão<span class="asterisk">*</span>
+										</label>
+										<div class="col-sm-9">
+											<input type="Date" id="data_fim_Gincana"
+												name="data_fim_Gincana" class="form-control"
+												placeholder="data de finalização da gincana" required />
+										</div>
+
+									</div>
+								<label class="col-sm-3 control-label">Situação do
+										Status<span class="asterisk">*</span>
+									</label>
+									<div class="col-sm-9">
+										<select class="form-control" name="status">
+											<option value="0">Selecione uma Opção</option>
+											<option th:each="status : ${list_status}"
+												th:value="${status.id_Status}"
+												th:text="${status.situacao_Status}"></option>
+										</select>
+ 
+									</div>  
+									<!-- form-group -->
+
+								</div>
+						<!--			<label class="col-sm-3 control-label">Status<span class="asterisk">*</span></label>
+								<div class="col-sm-9">
+									<select class="form-control" name="id_status">
+										<option value="0">Selecione uma Opção</option>
+										<option th:each="status : ${list_status}" th:value="${status.id_Status}"
+											th:text="${status.situacao_Status}"></option>
+									</select>
+								</div> -->
+
+							</div>
+							<!-- row -->
+					</div>
+					<!-- panel-body -->
+					<div class="panel-footer">
+						<div class="row">
+							<a href="/gincana/" class="btn btn-success">Voltar</a>
+							<button type="submit" class="btn btn-primary">Salvar</button>
+							<button type="reset" class="btn btn-dark">Limpar</button>
+						</div>
+
+					</div>
+					<!-- panel -->
+					</form>
+
+				</div>
+				<!-- panel -->
+
+			</div>
+
+		</div>
+		<!-- contentpanel -->
+</section>
+
+<div th:replace="comum/down"></div>

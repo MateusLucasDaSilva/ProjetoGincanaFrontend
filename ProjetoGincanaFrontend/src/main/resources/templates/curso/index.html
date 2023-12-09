@@ -1,0 +1,73 @@
+<div th:replace="comum/up"></div>
+	
+	<section>
+		<div class="mainwrapper">
+
+			<div th:replace="comum/leftpanel"></div>
+
+			<div class="mainpanel">
+				<div class="pageheader">
+					<div class="media">
+						<div class="pageicon pull-left">
+							<i class="fa fa-pencil"></i>
+						</div>
+						<div class="media-body">
+							<ul class="breadcrumb">
+								<li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
+								<li><a href="/curso">Curso</a></li>
+							</ul>
+							
+							<h4>Lista de Cursos</h4>
+						</div>
+					</div><!-- media -->
+				</div><!-- pageheader -->
+
+
+			<div class="contentpanel">
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">Lista de Cursos</h4>
+							<p>Tela para listagem dos Cursos</p>
+						</div><!-- panel-heading -->
+
+						<div class="panel-body nopadding">
+							<a href="/curso/adicionar_form" class="btn btn-primary" style="margin: 10px;">Novo Curso</a>
+							<div class="table-responsive">
+								<table class="table table-hidaction table-hover mb30">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Nome do Curso</th>
+											<th>Modalidade</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="curso : ${cursos}">
+										<td th:text="${curso.id_Curso}"></td>
+											<td th:text="${curso.nome_Curso}"></td>
+											<td th:text="${curso.modalidade_Curso}"></td>
+											<td>
+												<a th:href="@{/curso/editar_form/{id}(id=${curso.id_Curso})}"  class="btn btn-success"><i class="fa fa-pencil white"></i></a>
+												<a th:href="@{/curso/deletar/{id}(id=${curso.id_Curso})}" class="btn btn-danger"><i class="fa fa-trash-o white"></i></a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div><!-- table-responsive -->
+
+						</div><!-- panel-body -->
+
+						<div class="panel-footer">
+							<a href="/equipe/" class="btn btn-success" >Voltar</a>
+						</div><!-- panel-footer -->
+					</div><!-- panel -->
+
+				</div>
+
+			</div><!-- contentpanel -->
+
+	</section>
+
+<div th:replace="comum/down"></div>

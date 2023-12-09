@@ -1,0 +1,85 @@
+<div th:replace="comum/up"></div>
+
+<section>
+	<div class="mainwrapper">
+
+		<div th:replace="comum/leftpanel"></div>
+
+		<div class="mainpanel">
+			<div class="pageheader">
+				<div class="media">
+					<div class="pageicon pull-left">
+						<i class="fa fa-pencil"></i>
+					</div>
+					<div class="media-body">
+						<ul class="breadcrumb">
+							<li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
+							<li><a href="/evento/">Cadastros / Eventos</a></li>
+						</ul>
+						<h4>Lista de Eventos</h4>
+					</div>
+				</div><!-- media -->
+			</div><!-- pageheader -->
+
+			<div class="contentpanel">
+				<div class="row">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">Eventos</h4>
+							<p>Tela para listagem dos eventos</p>
+						</div><!-- panel-heading -->
+
+						<div class="panel-body nopadding">
+							<a href="/evento/adicionar_form" class="btn btn-primary" style="margin: 10px;">Novo</a>
+							<div class="table-responsive">
+								<table class="table table-hidaction table-hover mb30">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Nome</th>
+											<th>Descrição</th>
+											<th>Tipo de Evento</th>
+											<th>Data do Evento</th>
+											<th>Horario do Evento</th>
+											<th>Local do Evento</th>
+											<th>Gincana</th>
+											<th>Status</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="evento : ${eventos}">
+											<td th:text="${evento.id_Evento}"></td>
+											<td th:text="${evento.nome_Evento}"></td>
+											<td th:text="${evento.descricao_Evento}"></td>
+											<td th:text="${evento.tipo_Evento}"></td>
+											<td th:text="${evento.data_Evento}"></td>
+											<td th:text="${evento.horario_Evento}"></td>
+											<td th:text="${evento.local_Evento}"></td>
+											<td th:text="${evento.gincana.nome_Gincana}"></td>
+											<td th:text="${evento.status.situacao_Status}"></td>
+											<td>
+												<a th:href="@{/evento/editar_form/{id}(id=${evento.id_Evento})}"
+													class="btn btn-success"><i class="fa fa-pencil white"></i></a>
+												<a th:href="@{/evento/deletar/{id}(id=${evento.id_Evento})}"
+													class="btn btn-danger"><i class="fa fa-trash-o white"></i></a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div><!-- table-responsive -->
+
+						</div><!-- panel-body -->
+
+						<div class="panel-footer">
+							<a href="/dashboard" class="btn btn-success">Voltar</a>
+						</div><!-- panel-footer -->
+					</div><!-- panel -->
+
+				</div>
+
+			</div><!-- contentpanel -->
+
+</section>
+
+<div th:replace="comum/down"></div>
